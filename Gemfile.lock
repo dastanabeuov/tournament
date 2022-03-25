@@ -97,6 +97,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (1.1.0)
     diff-lcs (1.5.0)
     digest (3.1.0)
     erubi (1.10.0)
@@ -106,6 +107,8 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.5)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -227,6 +230,9 @@ GEM
       rubyzip (>= 1.2.2)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
+    slim (4.1.0)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -242,7 +248,9 @@ GEM
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
     strscan (3.0.1)
+    temple (0.8.2)
     thor (1.2.1)
+    tilt (2.0.10)
     timeout (0.2.0)
     turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
@@ -278,7 +286,9 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
+  devise-bootstrap-views
   factory_bot_rails
+  font-awesome-rails
   jbuilder
   jsbundling-rails
   launchy
@@ -290,6 +300,7 @@ DEPENDENCIES
   rspec-rails
   selenium-webdriver
   shoulda-matchers
+  slim
   spring
   spring-watcher-listen
   sprockets-rails
