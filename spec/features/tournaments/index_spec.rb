@@ -11,7 +11,6 @@ feature 'Tournaments INDEX', %q{
   scenario 'User can see Tournaments INDEX page' do
     sign_in(user)
 
-    expect(page).to have_content 'Signed in successfully.'
     expect(page).to have_content 'Welcome to Tournaments!'
   end
 end
