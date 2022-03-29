@@ -1,0 +1,12 @@
+.col-lg-4.col-md-6.mb-4
+  .card.h-100.w-100
+    .card-body
+      h2.card-title 
+        = tournament.name
+      p.card-date 
+        = tournament.date
+    
+    .card-footer
+      - if current_user&.author_of?(tournament)
+        = link_to "start", "/tournaments/#{tournament.id}/game/start", class: "btn btn-sm btn-outline-success m-1"
+        = link_to "show", tournament_path(tournament), class: "btn btn-sm btn-outline-info m-1"

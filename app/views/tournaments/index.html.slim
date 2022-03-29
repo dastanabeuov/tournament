@@ -1,1 +1,10 @@
-<h1>Welcome to Tournaments!</h1>
+.d-flex.justify-content-center
+  h1 Welcome to Tournaments!
+.d-flex.justify-content-center.mb-5
+  = link_to "Add New Tournament", new_tournament_path, class: "btn btn-sm btn-primary"
+
+- if !@tournaments.empty?
+  .tournament
+    .container.mb-3.content-wrap
+        .row
+          = render @tournaments

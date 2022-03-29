@@ -1,8 +1,8 @@
-<h1 align="center">Welcome to Tournament 👋</h1>
+<h1 align="center">Welcome to TournamentManageScoring 👋</h1>
 <p>
 
 
-Tournament is a Ruby on Rails application design to help the Soccer Clubs run and manage soccer tournaments.
+TournamentManageScoring is a Ruby on Rails application design to help the Soccer Clubs run and manage soccer tournaments.
 </p>
 
 ### ✨ [Demo](https://tournament-adk.herokuapp.com/)

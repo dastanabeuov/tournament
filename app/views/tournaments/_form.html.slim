@@ -1,0 +1,15 @@
+= form_for tournament do |f|
+  = render 'shared/errors', object: @tournament
+  .tournament
+    .field.form-group
+      = f.label :name
+      = f.text_field :name, required: true, minlegth: 2, class: 'form-control', placeholder: 'Name'
+
+    .field.form-group
+      = f.label :date
+      br
+      = f.date_select :date
+
+  .btn-group.mt-5
+    = f.submit class: "btn btn-sm btn-outline-primary m-1"
+    = link_to 'cancel', root_path, class: "btn btn-sm btn-secondary m-1"
