@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   root "tournaments#index"
 
   resources :tournaments
+
+  resources :teams
 end

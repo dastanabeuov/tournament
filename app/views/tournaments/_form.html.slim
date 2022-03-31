@@ -1,9 +1,9 @@
 = form_for tournament do |f|
-  = render 'shared/errors', object: @tournament
+  = render 'shared/errors', object: tournament
   .tournament
     .field.form-group
       = f.label :name
-      = f.text_field :name, required: true, minlegth: 2, class: 'form-control', placeholder: 'Name'
+      = f.text_field :name, class: 'form-control', placeholder: 'Name'
 
     .field.form-group
       = f.label :date

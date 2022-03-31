@@ -8,7 +8,7 @@ feature 'Tournaments CREATE', %q{
   given(:user) { create(:user) }
   
   background { sign_in(user) }
-  background { visit visit new_tournament_path }
+  background { visit new_tournament_path }
 
   scenario 'User can create Tournaments' do
     fill_in 'Name', with: 'NewMyString'

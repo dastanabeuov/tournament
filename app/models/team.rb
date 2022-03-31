@@ -1,7 +1,6 @@
-class Tournament < ApplicationRecord
+class Team < ApplicationRecord
   belongs_to :user
-
-  has_many :teams
+  belongs_to :tournament
   
   validates :name, presence: true
 end

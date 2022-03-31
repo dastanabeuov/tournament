@@ -12,21 +12,21 @@ class TournamentsController < ApplicationController
   def new; end
 
   def create
-    @tournament = current_user.tournaments.new(tournament_params)
-    if @tournament.save
-      redirect_to tournament_path(@tournament)
+    tournament = current_user.tournaments.new(tournament_params)
+    if tournament.save
+      redirect_to tournament_path(tournament)
       flash[:notice] = 'Tournament successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if current_user.author_of?(tournament) && tournament.update(tournament_params)
-      redirect_to tournament_path(@tournament)
+      redirect_to tournament_path(tournament)
       flash[:notice] = 'Tournament successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -38,13 +38,13 @@ class TournamentsController < ApplicationController
 
   private
 
-  def tournament
-    @tournament ||= params[:id] ? Tournament.find(params[:id]) : Tournament.new
-  end
+    def tournament
+      @tournament ||= params[:id] ? Tournament.find(params[:id]) : Tournament.new
+    end
 
-  helper_method :tournament
+    helper_method :tournament
 
-  def tournament_params
-    params.require(:tournament).permit(:name, :date)
-  end
+    def tournament_params
+      params.require(:tournament).permit(:name, :date)
+    end
 end
