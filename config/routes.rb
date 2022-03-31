@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   resources :tournaments
 
+  post "tournaments#start", to: "tournaments/start"
+
   resources :teams
 end

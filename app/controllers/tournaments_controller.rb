@@ -11,6 +11,9 @@ class TournamentsController < ApplicationController
 
   def new; end
 
+  def start
+  end
+
   def create
     tournament = current_user.tournaments.new(tournament_params)
     if tournament.save
