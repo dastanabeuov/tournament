@@ -1,12 +1,16 @@
-.col-lg-4.col-md-6.mb-4
+.col-lg-4.col-md-4.mb-4
   .card.h-100.w-100
     .card-body
       h2.card-title 
         = tournament.name
       p.card-date 
         = tournament.date
+      p.card-tournament-teams
+        small teams: 
+        = tournament.teams.count
     
     .card-footer
       - if current_user&.author_of?(tournament)
-        = link_to "start", "/tournaments/#{tournament.id}/game/start", class: "btn btn-sm btn-outline-success m-1"
+        = link_to "start", "/tournaments/#{tournament.id}/start", class: "btn btn-sm btn-outline-success m-1"
         = link_to "show", tournament_path(tournament), class: "btn btn-sm btn-outline-info m-1"
+        = link_to "delete", tournament_path(tournament), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger m-1"

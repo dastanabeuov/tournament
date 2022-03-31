@@ -1,0 +1,15 @@
+= form_for team do |f|
+  = render 'shared/errors', object: team
+  .team
+    .field.form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control', placeholder: 'Name'
+
+    .field.form-group
+      = f.select(:tournament_id, tournaments_for_select, prompt: 'Select tournament...')
+    
+    = f.hidden_field :best, value: false
+
+  .btn-group.mt-5
+    = f.submit class: "btn btn-sm btn-outline-primary m-1"
+    = link_to 'cancel', teams_path, class: "btn btn-sm btn-secondary m-1"

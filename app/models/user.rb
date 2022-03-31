@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :tournaments
+  has_many :teams
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

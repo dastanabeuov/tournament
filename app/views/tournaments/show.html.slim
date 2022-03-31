@@ -1,15 +1,22 @@
-.show-xroot
-  .col-lg-4.col-md-6.mb-4
+.show
+  .col-lg-12.col-md-12.mb-4
     .card.h-100.w-100
       .card-body
-        h2.card-title 
+        h2.card-name
           = tournament.name
         p.card-date 
           = tournament.date
       
       .card-footer
         - if current_user&.author_of?(tournament)
-          = link_to "start", "/tournaments/#{tournament.id}/game/start", class: "btn btn-sm btn-outline-success m-1"
+          = link_to "start", "/tournaments/#{tournament.id}/start", class: "btn btn-sm btn-outline-success m-1"
           = link_to "edit", edit_tournament_path(tournament), class: "btn btn-sm btn-outline-warning m-1"
-          = link_to "delete", tournament_path(tournament), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger m-1"
-          = link_to "back", root_path(tournament), class: "btn btn-sm btn-outline-secondary m-1" if request.path == tournament_path(tournament)
+          = link_to "back", root_path, class: "btn btn-sm btn-outline-secondary m-1"
+
+  .d-flex.justify-content-center
+    .content-wrap
+        .row
+          h2 
+            small Teams tournament 
+            = tournament.teams.count
+          = render tournament.teams

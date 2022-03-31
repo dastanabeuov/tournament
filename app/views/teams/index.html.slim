@@ -1,0 +1,11 @@
+.d-flex.justify-content-center
+  h1 Teams 
+  = Team.count
+.d-flex.justify-content-center.mb-5
+  = link_to "Add New Team", new_team_path, class: "btn btn-sm btn-primary"
+
+- if !@teams.empty?
+  .team
+    .content-wrap
+      .row
+        = render @teams

@@ -1,0 +1,10 @@
+.col-lg-4.col-md-4.mt-2
+  .card.h-100.w-100
+    .card-body
+      h2.card-title
+        = team.name
+    
+    .card-footer
+      - if current_user&.author_of?(team)
+        = link_to "show", team_path(team), class: "btn btn-sm btn-outline-info m-1"
+        = link_to "delete", team_path(team), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger m-1"

@@ -79,7 +79,7 @@ RSpec.describe TournamentsController, type: :controller do
 
   describe 'PUT #UPDATE' do
     context 'valid attribute' do
-      it 'update xclass' do
+      it 'update tournament' do
         put :update, params: { id: tournament, tournament: attributes_for(:tournament) }
 
         expect(assigns(:tournament)).to eq tournament

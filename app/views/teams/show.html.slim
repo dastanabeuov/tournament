@@ -1,0 +1,11 @@
+.show
+  .col-lg-4.col-md-6.mb-4
+    .card.h-100.w-100
+      .card-body
+        h2.card-name
+          = team.name
+      
+      .card-footer
+        - if current_user&.author_of?(team)
+          = link_to "edit", edit_team_path(team), class: "btn btn-sm btn-outline-warning m-1"
+          = link_to "back", teams_path, class: "btn btn-sm btn-outline-secondary m-1"
