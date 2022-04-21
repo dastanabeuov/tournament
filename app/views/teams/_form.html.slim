@@ -7,8 +7,6 @@
 
     .field.form-group
       = f.select(:tournament_id, tournaments_for_select, prompt: 'Select tournament...')
-    
-    = f.hidden_field :best, value: false
 
   .btn-group.mt-5
     = f.submit class: "btn btn-sm btn-outline-primary m-1"
