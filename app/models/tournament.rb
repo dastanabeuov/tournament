@@ -6,7 +6,7 @@ class Tournament < ApplicationRecord
   
   validates :name, presence: true
 
-  def self.game(object)
-    Services::Game.new(object).call
+  def self.game(tournament)
+    Game.new(tournament).call
   end
 end

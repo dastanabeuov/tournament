@@ -11,6 +11,6 @@
     
     .card-footer
       - if current_user&.author_of?(tournament)
-        = link_to "start", "/tournaments/#{tournament.id}/start", class: "btn btn-sm btn-outline-success m-1"
+        = button_to "start", start_tournament_path(tournament), class: "btn btn-sm btn-outline-success m-1"
         = link_to "show", tournament_path(tournament), class: "btn btn-sm btn-outline-info m-1"
         = link_to "delete", tournament_path(tournament), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger m-1"

@@ -12,6 +12,9 @@ class TournamentsController < ApplicationController
   def new; end
 
   def start
+    Tournament.game(tournament)
+
+    redirect_to tournament_path(tournament)
   end
 
   def create
@@ -35,7 +38,7 @@ class TournamentsController < ApplicationController
 
   def destroy
     tournament.destroy if current_user.author_of?(tournament)
-    redirect_to root_path
+    redirect_to root_path, status: :see_other
     flash[:notice] = 'Tournament successfully destroyed.'
   end
 

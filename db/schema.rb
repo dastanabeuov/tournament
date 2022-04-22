@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_30_041425) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_31_100052) do
+  create_table "games", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "tournament_id", null: false
+    t.boolean "group", default: false
+    t.integer "team_one_id"
+    t.integer "team_two_id"
+    t.datetime "datetime"
+    t.integer "goals_one"
+    t.integer "goals_two"
+    t.integer "winner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "best", default: false, null: false

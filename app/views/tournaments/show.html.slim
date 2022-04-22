@@ -9,7 +9,7 @@
       
       .card-footer
         - if current_user&.author_of?(tournament)
-          = link_to "start", "/tournaments/#{tournament.id}/start", class: "btn btn-sm btn-outline-success m-1"
+          = button_to "start", start_tournament_path(tournament), class: "btn btn-sm btn-outline-success m-1"
           = link_to "edit", edit_tournament_path(tournament), class: "btn btn-sm btn-outline-warning m-1"
           = link_to "back", root_path, class: "btn btn-sm btn-outline-secondary m-1"
 

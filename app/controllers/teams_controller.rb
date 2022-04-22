@@ -30,7 +30,7 @@ class TeamsController < ApplicationController
 
   def destroy
     team.destroy if current_user.author_of?(team)
-    redirect_to teams_path
+    redirect_to teams_path, status: :see_other
     flash[:notice] = 'Team successfully destroyed.'
   end
 

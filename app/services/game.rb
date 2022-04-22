@@ -1,31 +1,57 @@
-class Services::Game
-  attr_accessor :user_id, :tournament_id, :team_one_id, :team_two_id, :datetime, :tour, :goals_one, :goals_two
+class Game
+  attr_accessor :teams, :user_id, :tournament_id
 
-  def initialize(object)
-    @user_id = object.user_id
-    @tournament_id = object.tournament_id
-    @team_one_id = team_one_id
-    @team_two_id = team_two_id
-    @datetime = datetime
-    @tour = tour
-    @goals_one = goals_one
-    @goals_two = goals_two
+  def initialize(tournament)
+    @teams = tournament.teams
+    @user_id = tournament.user_id
+    @tournament_id = tournament.id
   end
 
   def call
-    authorization = Authorization.where(provider: auth.provider, uid: auth.uid.to_s).first
-    return authorization.user if authorization
+    @teams.shuffle
+    group_a = @teams[0..7]
+    group_b = @teams[8..-1]
+ 
+    group_a.each do |team_one, team_two|
+      Game.create(
+          user_id: @user_id,
+          tournament_id: @tournament_id,
+          group: false, #-----------------group A
+          team_one_id: team_one.id,
+          team_two_id: team_two.id,
+          datetime: Time.now,
+          goals_one: rand(0..5),
+          goals_two: rand(0..5),
 
-    email = auth.info[:email]
-    user = User.where(email: email).first
-    if user
-      user.create_authorization(auth)
-    else
-      password = Devise.friendly_token[0, 20]
-      user = User.create!(email: email, password: password, password_confirmation: password)
-      user.create_authorization(auth)
+          if goals_one > goals_two
+            winner_id: team_one.id
+          elsif goals_two > goals_one
+            winner_id: team_two.id
+          else
+            winner_id: 0
+          end 
+        )
+
+    group_b.each do |team_one, team_two|
+      Game.create(
+          user_id: @user_id,
+          tournament_id: @tournament_id,
+          group: true, #-------------------group B
+          team_one_id: team_one.id,
+          team_two_id: team_two.id,
+          datetime: Time.now,
+          goals_one: rand(0..5),
+          goals_two: rand(0..5),
+
+          if goals_one > goals_two
+            winner_id: team_one.id
+          elsif goals_two > goals_one
+            winner_id: team_two.id
+          else
+            winner_id: 0
+          end 
+        )
     end
-
-    user
   end
+
 end
