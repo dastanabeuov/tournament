@@ -39,7 +39,6 @@ The gem is available as open source under the terms of the [MIT License](http://
 👤 **ADK**
 
 * Github: [@adk] (https://github.com/dastanabeuov)
-* HeadHunter: @adk (ADK) www.hh.kz/resume/578cadbeff02d235740039ed1f6a545849736b
 
 ## Ruby version (3.0.0)
 ## Ruby on Rails (7.0.2.3)
